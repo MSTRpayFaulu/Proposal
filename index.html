@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSTRpay & Faulu | Strategic JV Proposal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --color-primary: #0052cc;
+            --color-secondary: #ff9a00;
+            --color-dark: #2a4b6a;
+            --color-light: #f8f9fa;
+            --color-gradient: linear-gradient(115deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background: var(--color-light);
+            height: 100%;
+            overflow: hidden;
+            font-weight: 400;
+        }
+
+        .reveal {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        section {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+            background-size: cover;
+            background-position: center;
+            overflow-y: auto;
+        }
+
+        section.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin: 1rem;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+            color: var(--color-primary);
+        }
+
+        p, li {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        strong {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        img.icon {
+            max-width: 70px;
+            max-height: 70px;
+            margin: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .logo-container img {
+            max-height: 80px;
+            max-width: 250px;
+            object-fit: contain;
+            margin: 1rem 2rem;
+            border: 1px solid #eee;
+            padding: 10px;
+            background: white;
+        }
+
+        .divider {
+            width: 120px;
+            height: 4px;
+            background: var(--color-gradient);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        .two-column {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
+            width: 100%;
+            margin: 1.5rem auto;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .col h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            min-height: auto;
+        }
+
+        .fusion-graphic {
+            max-width: 900px;
+            margin: 1.5rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .financial-model {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            margin: 1.5rem auto;
+        }
+
+        .roadmap-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .roadmap-phase {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            flex: 1;
+            min-width: 220px;
+            max-width: 250px;
+        }
+
+        .roadmap-phase .phase-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .controls button {
+            background: var(--color-gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .controls button:hover {
+            transform: scale(1.08);
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 1000;
+            background: #dee2e6;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--color-gradient);
+            transition: width 0.5s ease-out;
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            font-size: 1rem;
+            color: var(--color-dark);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.4rem 1.2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .summary-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--color-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border-radius: 8px;
+        }
+        .summary-box h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            margin: 1.5rem auto;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .framework-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .framework-item h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--color-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress"><div class="progress-bar"></div></div>
+    <div class="slide-number">Slide 1 of 15</div>
+
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- SLIDE 1: TITLE -->
+            <section class="active" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3') center/cover;">
+                <div class="slide-content">
+                    <div class="logo-container">
+                        <img src="mstrpay-logo.png" alt="MSTRPay Logo">
+                        <img src="faulu-logo.png" alt="Faulu Bank Logo">
+                    </div>
+                    <h1>Strategic Joint Venture for Market Leadership</h1>
+                    <div class="divider"></div>
+                    <p>Launching <strong>MSTRCash Kenya Ltd</strong></p>
+                    <p>Presented by <strong>[Your Name]</strong></p>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: AGENDA -->
+            <section>
+                <div class="slide-content">
+                    <h2>Our Journey Today</h2>
+                    <div class="divider"></div>
+                    <ol>
+                        <li>Shared Vision for Kenya</li>
+                        <li>Faulu's Strategic Position</li>
+                        <li>The Digital Finance Gap</li>
+                        <li>The MSTRpay Ecosystem</li>
+                        <li>JV Structure & Model</li>
+                        <li>Collaborative Framework</li>
+                        <li>Path to Leadership</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: SHARED VISION -->
+            <section>
+                <div class="slide-content">
+                    <h2>Our Shared Ambition</h2>
+                    <div class="divider"></div>
+                    <p>To create <strong>Kenya's most integrated digital financial ecosystem</strong>, seamlessly blending trusted banking with innovative lifestyle and cross-border services.</p>
+                    <p>To serve the <strong>next generation of customers</strong> who demand more than just loans—they want earnings, entertainment, and global connectivity, all in one place.</p>
+                    <p>To <strong>future-proof Faulu's incredible legacy</strong> by injecting cutting-edge technology, new revenue streams, and a digital growth engine.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: WHY FAULU - DEEP DIVE -->
+            <section>
+                <div class="slide-content">
+                    <h2>Why Faulu? The Unbeatable Foundation</h2>
+                    <div class="divider"></div>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Regulatory Excellence</h3>
+                            <p>CBK-licensed DTM institution. The cornerstone of our venture.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>Digital Transformation</h3>
+                            <p>Faulu DigiCash app, USSD, and agency network show proven digital innovation.</p>
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-users"></i></div>
+                            <h3>Customer Trust & Scale</h3>
+                            <p>Over <strong>102,000</strong> customers and a 30+ year legacy of empowerment.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                            <h3>Financial Strength</h3>
+                            <p>Backed by <strong>Old Mutual</strong>. Healthy PAR30 (<4%). CAR (15%) exceeding CBK requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: MARKET OPPORTUNITY -->
+            <section>
+                <div class="slide-content">
+                    <h2>The Market Opportunity</h2>
+                    <div class="divider"></div>
+                    <p>The competition offers loans. The market demands <strong>more</strong>.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <h3>The Gap</h3>
+                            <ul>
+                                <li>Limited cross-border solutions for MSMEs.</li>
+                                <li>No true lifestyle banking ecosystem.</li>
+                                <li>Young demographics are underserved.</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h3>The Opportunity</h3>
+                            <ul>
+                                <li>Lead in <strong>integrated digital finance</strong>.</li>
+                                <li>Capture revenue from <strong>remittances & lifestyle</strong>.</li>
+                                <li>Acquire the next 100,000 users with a <strong>super-app</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: MSTRPAY ECOSYSTEM -->
+            <section>
+                <div class="slide-content">
+                    <h2>Introducing the MSTRpay Ecosystem</h2>
+                    <div class="divider"></div>
+                    <p>We provide the rocket fuel for digital growth.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-globe-africa"></i></div>
+                            <h3>Cross-Border Rails</h3>
+                            <p>Seamless international payments and remittances.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-coins"></i></div>
+                            <h3>MSTRearn</h3>
+                            <p>Micro-earnings platform boosts engagement and loyalty.</p>
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-tv"></i></div>
+                            <h3>MSTRtv & Media</h3>
+                            <p>Integrated content makes the app a daily destination.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-mobile"></i></div>
+                            <h3>Device Bundling</h3>
+                            <p>Smartphone leasing brings new users into the digital economy.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: THE VISION -->
+            <section>
+                <div class="slide-content">
+                    <h2>The Vision: MSTRCash Kenya</h2>
+                    <div class="divider"></div>
+                    <p>A 50/50 Joint Venture company, creating a new market leader.</p>
+                    <p><strong>Our Mission:</strong> A single platform for financial and lifestyle needs, powered by Faulu's trust and MSTRpay's innovation.</p>
+                    <div class="icon-box"><i class="fas fa-handshake"></i></div>
+                    <p>This is a <strong>strategic partnership</strong> to build a future-proof business.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: THE FUSION (CORE GRAPHIC) -->
+            <section>
+                <div class="slide-content">
+                    <h2>The Fusion of Strengths</h2>
+                    <div class="divider"></div>
+                    <div class="fusion-graphic">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; margin: 0.5rem; flex: 1; min-width: 250px;">
+                                <h3>Faulu's Foundation</h3>
+                                <ul style="text-align: left; font-size: 1.1rem;">
+                                    <li>DTM License</li>
+                                    <li>Regulatory Trust</li>
+                                    <li>Customer Base</li>
+                                    <li>Physical Network</li>
+                                </ul>
+                            </div>
+                            <div style="font-size: 2.5rem; margin: 0 1rem; color: var(--color-primary); align-self: center;">+</div>
+                            <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; margin: 0.5rem; flex: 1; min-width: 250px;">
+                                <h3>MSTRpay's Engine</h3>
+                                <ul style="text-align: left; font-size: 1.1rem;">
+                                    <li>Global Tech</li>
+                                    <li>Cross-Border Rails</li>
+                                    <li>Digital Acquisition</li>
+                                    <li>Lifestyle Ecosystem</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="font-size: 1.8rem; margin: 1rem 0; color: var(--color-secondary); text-align: center;"><i class="fas fa-arrow-down"></i></div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--color-gradient); color: white; border-radius: 12px;">
+                            <h3 style="color: white;">MSTRCash Kenya Ltd</h3>
+                            <p style="color: white; font-size: 1.2rem;">The most complete digital bank in Kenya.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: JV STRUCTURE (LOI TERMS) -->
+            <section>
+                <div class="slide-content">
+                    <h2>The JV Structure</h2>
+                    <div class="divider"></div>
+                    <p>A binding framework for shared success, as outlined in our LOI.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-chart-pie"></i></div>
+                            <h3>Equity & Ownership</h3>
+                            <p><strong>50% Faulu / 50% MSTRpay</strong></p>
+                            <p>True partnership. Equal stake, equal say.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-euro-sign"></i></div>
+                            <h3>Capital Commitment</h3>
+                            <p>MSTRpay provides <strong>€25K - €50K</strong> initial working capital for launch.</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="equityChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: THE €3 MODEL -->
+            <section>
+                <div class="slide-content">
+                    <h2>Strategic Capital Alignment</h2>
+                    <div class="divider"></div>
+                    <div class="financial-model">
+                        <div class="icon-box"><i class="fas fa-gift"></i></div>
+                        <h3>The €3 Per Client Model</h3>
+                        <p>For every verified active user onboarded, Faulu receives <strong>€3 in MSTRpay shares</strong>.</p>
+                        <div class="divider"></div>
+                        <p><strong>This is strategic capital alignment.</strong></p>
+                        <ul>
+                            <li>Rewards Faulu as the foundation of growth.</li>
+                            <li>Creates a valuable secondary asset on your balance sheet.</li>
+                            <li>Aligns our interests: <strong>more customers = more shared value</strong>.</li>
+                        </ul>
+                        <div class="divider"></div>
+                        <p><strong>All profits</strong> distributed <strong>50/50</strong>.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: COLLABORATIVE FRAMEWORK -->
+            <section>
+                <div class="slide-content">
+                    <h2>Our Collaborative Framework</h2>
+                    <div class="divider"></div>
+                    <p>Intelligent division of responsibilities for maximum impact and efficiency.</p>
+                    
+                    <div class="framework-grid">
+                        <div class="framework-item">
+                            <h4>Regulatory & Compliance</h4>
+                            <p><strong>Faulu Leads</strong></p>
+                            <p>Providing the DTM license, ultimate KYC oversight, and ensuring regulatory excellence.</p>
+                        </div>
+                        <div class="framework-item">
+                            <h4>Technology & Platform</h4>
+                            <p><strong>MSTRpay Leads</strong></p>
+                            <p>Providing the full tech stack, app development, security, and maintenance.</p>
+                        </div>
+                        <div class="framework-item">
+                            <h4>Customer Trust & Brand</h4>
+                            <p><strong>Faulu Leads</strong></p>
+                            <p>Being the face of trust and credibility for the end customer.</p>
+                        </div>
+                        <div class="framework-item">
+                            <h4>Growth & Marketing</h4>
+                            <p><strong>MSTRpay Leads</strong></p>
+                            <p>Driving digital customer acquisition, campaigns, and agent network expansion.</p>
+                        </div>
+                    </div>
+                    <p><strong>Result:</strong> Each partner focuses on their core competencies, creating a seamless and powerful operation.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: ROADMAP -->
+            <section>
+                <div class="slide-content">
+                    <h2>Our Roadmap to Launch</h2>
+                    <div class="divider"></div>
+                    <div class="roadmap-container">
+                        <div class="roadmap-phase">
+                            <div class="phase-number">1</div>
+                            <h3>Align & Approve</h3>
+                            <p>(Next 4 Weeks)</p>
+                            <p>Finalize LOI, Board presentation, CBK engagement.</p>
+                        </div>
+                        <div class="roadmap-phase">
+                            <div class="phase-number">2</div>
+                            <h3>Build & Integrate</h3>
+                            <p>(Next 12 Weeks)</p>
+                            <p>Technical collaboration, platform integration.</p>
+                        </div>
+                        <div class="roadmap-phase">
+                            <div class="phase-number">3</div>
+                            <h3>Launch & Scale</h3>
+                            <p>(Q1 2025)</p>
+                            <p>Pilot launch, full market rollout, growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: STRATEGIC IMPERATIVES -->
+            <section>
+                <div class="slide-content">
+                    <h2>Why This is the Right Decision</h2>
+                    <div class="divider"></div>
+                    <ul>
+                        <li><strong>Capital Efficiency:</strong> Gain advanced tech and new markets without massive CAPEX.</li>
+                        <li><strong>Competitive Edge:</strong> Differentiate from every other bank and fintech.</li>
+                        <li><strong>Growth:</strong> Acquire a new demographic and open high-margin revenue streams.</li>
+                        <li><strong>Future-Proofing:</strong> Build the digital bank of the future, today.</li>
+                    </ul>
+                    <div class="divider"></div>
+                    <p>This is a <strong>strategic decision</strong> for market leadership.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: NEXT STEPS -->
+            <section>
+                <div class="slide-content">
+                    <h2>Next Steps</h2>
+                    <div class="divider"></div>
+                    <ol>
+                        <li>Secure alignment on the vision and structure.</li>
+                        <li>Share a detailed term sheet for executive review.</li>
+                        <li>Coordinate a joint presentation to the Faulu Board.</li>
+                    </ol>
+                    <div class="divider"></div>
+                    <p><strong>We are prepared to move forward immediately.</strong></p>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: STRATEGIC SUMMARY -->
+            <section>
+                <div class="slide-content">
+                    <h2>Strategic Summary</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="summary-box">
+                        <h4>The Opportunity</h4>
+                        <p>This JV is a strategic tool for <strong>market leadership</strong>. It leverages Faulu's strengths to capture new growth and future-proof the institution.</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h4>The Proposal</h4>
+                        <p>Co-create MSTRCash Kenya Ltd, a 50/50 entity combining Faulu's regulatory strength with MSTRpay's digital ecosystem.</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h4>The Action</h4>
+                        <p>We seek your sponsorship to present to the Faulu Board for approval within the next 4 weeks.</p>
+                    </div>
+
+                    <div class="divider"></div>
+                    <p><strong>[Your Name]</strong> | [Your Title]</p>
+                    <p><strong>MSTRpay</strong></p>
+                    <p><strong>Email:</strong> [Your Email]</p>
+                    <p><strong>Phone:</strong> [Your Phone Number]</p>
+
+                    <a href="dashboard.html" class="btn"><i class="fas fa-chart-line"></i> View Vision Dashboard</a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prev-btn"><i class="fas fa-arrow-left"></i></button>
+        <button id="next-btn"><i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('section');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progressBar = document.querySelector('.progress-bar');
+            const slideNumberEl = document.querySelector('.slide-number');
+            let currentSlide = 0;
+
+            // Initialize Charts
+            const equityCtx = document.getElementById('equityChart').getContext('2d');
+            const equityChart = new Chart(equityCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Faulu MFB', 'MSTRpay'],
+                    datasets: [{
+                        data: [50, 50],
+                        backgroundColor: ['#ff9a00', '#0052cc'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Ownership Structure', font: { size: 16 } }
+                    }
+                }
+            });
+
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Faulu MFB Profit Share', 'MSTRpay Profit Share'],
+                    datasets: [{
+                        data: [50, 50],
+                        backgroundColor: ['#ff9a00', '#0052cc'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Profit Distribution', font: { size: 16 } }
+                    }
+                }
+            });
+
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+
+                const progress = (currentSlide / (slides.length - 1)) * 100;
+                progressBar.style.width = progress + '%';
+
+                slideNumberEl.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+            }
+
+            function goToNextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function goToPrevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', goToNextSlide);
+            prevBtn.addEventListener('click', goToPrevSlide);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight') goToNextSlide();
+                if (event.key === 'ArrowLeft') goToPrevSlide();
+            });
+
+            let touchStartX = 0;
+            document.querySelector('.slides').addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+            document.querySelector('.slides').addEventListener('touchend', e => {
+                let touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) goToNextSlide();
+                if (touchEndX > touchStartX + 50) goToPrevSlide();
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
