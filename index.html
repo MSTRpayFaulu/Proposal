@@ -3,43 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Strategic Digital Partnership between MSTRpay and Faulu Microfinance Bank to launch MSTRCash Kenya Ltd, a next-generation financial platform.">
-    <meta name="author" content="Otieno Abraham">
-    <meta property="og:title" content="MSTRpay & Faulu Strategic Partnership">
-    <meta property="og:description" content="Discover the transformative joint venture to create MSTRCash Kenya Ltd, combining Faulu's regulatory expertise with MSTRpay's technological innovation.">
-    <meta property="og:image" content="mstrpay-logo.png">
-    <meta property="og:url" content="https://mstrpay.com">
-    <title>MSTRpay & Faulu | Strategic Partnership</title>
+    <title>MSTRpay & Faulu | Detailed JV Proposal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #0052cc;
             --color-secondary: #ff9a00;
-            --color-dark: #1a2d45;
+            --color-dark: #2a4b6a;
             --color-light: #f8f9fa;
-            --color-white: #ffffff;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
-            --font-primary: 'Inter', system-ui, sans-serif;
-            --bg-color: #ffffff;
+            --color-success: #28a745;
+            --color-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
         }
 
         body, html {
-            font-family: var(--font-primary);
-            background: var(--bg-color);
-            color: var(--color-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--color-light);
+            color: #333;
             height: 100%;
             overflow: hidden;
-            line-height: 1.6;
             font-weight: 400;
         }
 
@@ -48,7 +36,6 @@
             width: 100vw;
             height: 100vh;
             overflow: hidden;
-            background: var(--bg-color);
         }
 
         .slides {
@@ -65,92 +52,81 @@
             height: 100vh;
             top: 0;
             left: 0;
-            display: grid;
-            place-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 2rem;
+            box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.6s ease, visibility 0.6s, transform 0.6s;
-            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+            background-size: cover;
+            background-position: center;
             overflow-y: auto;
-            background: var(--bg-color);
+            /* Ensure scrollbars are visible if content overflows */
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-primary) #eee;
         }
 
         section.active {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
         }
 
         .slide-content {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 90%;
-            background: var(--bg-color);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            margin: 1rem;
-            position: relative;
-            border: 1px solid rgba(0, 82, 204, 0.2);
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem 2.5rem; /* Adjusted padding for better text spacing */
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin: 1rem auto;
+            overflow-y: auto; /* Ensure content within slide is scrollable if needed */
+            max-height: 90vh; /* Prevent content from exceeding viewport */
         }
 
-        h1, h2, h3, h4 {
-            font-weight: 800;
+        h1, h2, h3 {
+            font-weight: 700;
             margin-bottom: 1.2rem;
             color: var(--color-dark);
             line-height: 1.3;
-            text-align: center;
         }
 
         h1 {
-            font-size: clamp(3.5rem, 6vw, 4rem);
-            color: var(--color-primary);
+            font-size: clamp(2.2rem, 5vw, 2.8rem); /* Responsive font size */
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         h2 {
-            font-size: clamp(2.5rem, 4.5vw, 3rem);
+            font-size: clamp(1.8rem, 4vw, 2.2rem); /* Responsive font size */
         }
 
         h3 {
-            font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.4rem, 3vw, 1.7rem); /* Responsive font size */
             color: var(--color-primary);
         }
 
-        h4 {
-            font-size: clamp(1.5rem, 2.5vw, 1.7rem);
-            color: var(--color-secondary);
-        }
-
         p, li {
-            font-size: clamp(1.2rem, 2vw, 1.3rem);
-            line-height: 1.7;
+            font-size: clamp(1rem, 2.5vw, 1.2rem); /* Smaller, responsive font size */
+            line-height: 1.7; /* Increased line height for readability */
             margin-bottom: 1rem;
-            color: var(--color-dark);
-            animation: fadeIn 1s ease-in-out forwards;
+            color: #444; /* Slightly darker for better contrast */
         }
 
         ul, ol {
             text-align: left;
-            max-width: 700px;
+            max-width: 90%; /* Prevent lists from touching edges */
             margin: 0 auto;
-            padding-left: 1.5rem;
+            padding-left: 1.5rem; /* Ensure proper indentation */
         }
 
         li {
             margin-bottom: 0.7rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        li:before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--color-primary);
-            position: absolute;
-            left: 0;
-            top: 0.2rem;
-            font-size: 1.1rem;
         }
 
         strong {
@@ -162,179 +138,135 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            margin: 2rem 0;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            gap: 1.5rem; /* Added gap for better spacing */
         }
 
         .logo-container img {
-            max-height: 100px;
-            max-width: 250px;
+            max-height: 80px;
+            max-width: 200px; /* Reduced width to prevent overflow */
             object-fit: contain;
-            padding: 1rem;
-            background: var(--color-white);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container img:hover {
-            transform: scale(1.1);
+            margin: 0.5rem;
+            border: 1px solid #eee;
+            padding: 8px;
+            background: white;
         }
 
         .divider {
-            width: 100px;
-            height: 5px;
-            background: var(--color-primary);
+            width: 120px;
+            height: 4px;
+            background: var(--color-gradient);
             margin: 1.5rem auto;
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 1.5rem;
             width: 100%;
-            margin: 2rem auto;
+            margin: 1rem auto;
+            flex-wrap: wrap;
         }
 
         .col {
-            background: var(--color-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 280px; /* Slightly reduced for smaller screens */
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             text-align: center;
-            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
-        .col:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+        .col h3 {
+            margin-top: 0;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
         }
 
-        .visual-container {
-            height: 180px;
-            margin: 1.5rem 0;
-            display: grid;
-            place-items: center;
-            background: var(--color-white);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .visual-container:hover {
-            transform: scale(1.03);
-        }
-
-        .visual-icon {
-            font-size: 4.5rem;
-            color: var(--color-primary);
-            transition: transform 0.3s ease;
-        }
-
-        .visual-container:hover .visual-icon {
-            transform: scale(1.1);
+        .icon-box {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .financial-model, .loi-clause {
-            background: var(--color-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 1.5rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            max-width: 90%;
+            margin: 1rem auto;
             text-align: left;
         }
 
         .loi-clause h3 {
-            border-bottom: 3px solid var(--color-primary);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 0.5rem;
         }
 
         .chart-container {
-            height: 320px;
-            width: 100%;
-            margin: 2rem auto;
             position: relative;
+            height: 280px; /* Slightly reduced height */
+            width: 100%;
+            max-width: 800px; /* Constrain chart width */
+            margin: 1rem auto;
         }
 
         .strategy-note {
-            background: rgba(0, 82, 204, 0.05);
-            border-left: 5px solid var(--color-primary);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 12px;
+            background: #e8f4fc;
+            border-left: 4px solid var(--color-primary);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
             text-align: left;
         }
 
         .strategy-note h4 {
+            color: var(--color-primary);
+            margin-top: 0;
             display: flex;
             align-items: center;
-            font-size: 1.3rem;
-            color: var(--color-primary);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
         }
 
         .strategy-note h4 i {
-            margin-right: 0.8rem;
-            font-size: 1.3rem;
+            margin-right: 0.5rem;
         }
 
         .controls {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
 
         .controls button {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: var(--color-gradient);
+            color: white;
             border: none;
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .controls button:hover {
-            transform: scale(1.1);
-            background: var(--color-secondary);
-        }
-
-        .nav-bar {
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 1000;
-            background: var(--color-white);
-            padding: 0.8rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--color-primary);
-        }
-
-        .nav-item {
-            width: 12px;
-            height: 12px;
-            background: var(--color-light);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-primary);
-        }
-
-        .nav-item:hover, .nav-item.active {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
+            transform: scale(1.08);
         }
 
         .progress {
@@ -342,768 +274,757 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             z-index: 1000;
-            background: var(--color-light);
+            background: #dee2e6;
         }
 
         .progress-bar {
             height: 100%;
-            width: 0;
-            background: var(--color-primary);
-            transition: width 0.5s ease;
+            width: 0%;
+            background: var(--color-gradient);
+            transition: width 0.5s ease-out;
         }
 
-        .loader {
+        .slide-number {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--color-primary);
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            font-size: 0.9rem;
+            color: var(--color-dark);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-gradient);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+        }
+
+        .signature-block {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 1;
-            transition: opacity 0.6s ease;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .signature {
+            text-align: center;
+            margin: 0.8rem;
+            min-width: 220px;
         }
 
-        .loader-icon {
-            font-size: 3rem;
-            color: var(--color-white);
-            animation: spin 1.2s infinite linear;
+        .signature-line {
+            width: 180px;
+            height: 1px;
+            background: #333;
+            margin: 0.5rem auto;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .animate-in {
-            animation: slideIn 0.8s ease forwards;
-        }
-
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .slide-content {
                 padding: 1.5rem;
+                max-height: 85vh;
             }
 
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            h3 { font-size: 1.8rem; }
-            h4 { font-size: 1.5rem; }
+            h1 {
+                font-size: clamp(1.8rem, 4.5vw, 2.2rem);
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+            }
+
+            p, li {
+                font-size: clamp(0.9rem, 2.2vw, 1rem);
+            }
 
             .two-column {
-                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
-            .fusion-graphic {
-                flex-direction: column;
+            .col {
+                min-width: 100%;
             }
 
-            .fusion-arrow {
-                transform: rotate(90deg);
-                margin: 1.5rem 0;
+            .chart-container {
+                height: 240px;
             }
 
-            .nav-bar {
-                display: none;
+            .logo-container img {
+                max-width: 150px;
             }
         }
 
-        button[aria-label]:focus, .nav-item:focus {
-            outline: 3px solid var(--color-primary);
-            outline-offset: 3px;
-        }
+        @media (max-width: 480px) {
+            .slide-content {
+                padding: 1rem;
+                max-height: 80vh;
+            }
 
-        canvas:focus {
-            outline: 3px solid var(--color-primary);
+            .controls button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .slide-number {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="loader">
-        <i class="fas fa-spinner loader-icon"></i>
-    </div>
+
     <div class="progress"><div class="progress-bar"></div></div>
-    <div class="nav-bar"></div>
+    <div class="slide-number">Slide 1 of 18</div>
 
     <div class="reveal">
         <div class="slides">
+            
             <!-- SLIDE 1: TITLE -->
-            <section class="active">
-                <div class="slide-content animate-in">
+            <section class="active" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3') center/cover;">
+                <div class="slide-content">
+                    <h2>MSTRpay & Faulu Joint Venture Proposal</h2>
                     <div class="logo-container">
-                        <img src="mstrpay-logo.png" alt="MSTRPay Logo" loading="lazy">
-                        <img src="faulu-logo.png" alt="Faulu Bank Logo" loading="lazy">
+                        <img src="mstrpay-logo.png" alt="MSTRPay Logo">
+                        <img src="faulu-logo.png" alt="Faulu Bank Logo">
                     </div>
-                    <h1>Strategic Digital Partnership</h1>
+                    <h1>MSTRCash Kenya Ltd</h1>
                     <div class="divider"></div>
-                    <p>Launching <strong>MSTRCash Kenya Ltd</strong> - A Next Generation Financial Platform</p>
+                    <p><strong>Detailed Joint Venture Proposal</strong></p>
                     <p>Presented by <strong>Otieno Abraham</strong><br>Country Representative Lead - Kenya, MSTRpay</p>
                 </div>
             </section>
 
-            <!-- SLIDE 2: PARTIES -->
+            <!-- SLIDE 2: AGENDA -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Parties to the Joint Venture</h2>
+                <div class="slide-content">
+                    <h2>Presentation Agenda</h2>
                     <div class="divider"></div>
-                    <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Faulu Microfinance Bank</h3>
-                            <div class="visual-container">
-                                <img src="faulu-logo.png" alt="Faulu Logo" loading="lazy">
-                            </div>
-                            <p>Licensed microfinance institution incorporated under the laws of Kenya, with principal offices in Nairobi.</p>
-                        </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>MSTRpay AG</h3>
-                            <div class="visual-container">
-                                <img src="mstrpay-logo.png" alt="MSTRpay Logo" loading="lazy">
-                            </div>
-                            <p>Financial technology and digital banking company incorporated under the laws of Sweden, with offices in Stockholm.</p>
-                        </div>
-                    </div>
-                    <div class="strategy-note animate-in" style="animation-delay: 0.4s;">
-                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
-                        <p>Combining Faulu's regulatory trust with MSTRpay's global tech platform creates a robust foundation.</p>
-                    </div>
+                    <ol>
+                        <li>Executive Summary & Vision</li>
+                        <li>Why Faulu is the Ideal Partner</li>
+                        <li>Detailed LOI Terms Walkthrough</li>
+                        <li>Capital Structure & Financials</li>
+                        <li>Operational Framework</li>
+                        <li>Strategic Expansion Plans</li>
+                        <li>Next Steps & Signatures</li>
+                    </ol>
                 </div>
             </section>
 
-            <!-- SLIDE 3: PURPOSE -->
+            <!-- SLIDE 3: EXECUTIVE SUMMARY -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Purpose of the Joint Venture</h2>
+                <div class="slide-content">
+                    <h2>Executive Summary</h2>
                     <div class="divider"></div>
-                    <p>Form a 50/50 joint venture, <strong>MSTRCash Kenya Ltd</strong>, to develop and operate a digital banking and microfinance platform in Kenya.</p>
+                    <p>This proposal outlines a 50/50 joint venture to establish <strong>MSTRCash Kenya Ltd</strong>, a digital banking platform leveraging Faulu's regulatory expertise and MSTRpay's technological ecosystem.</p>
+                    
                     <div class="two-column">
-                        <div class="col animate-in">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-bullseye"></i></div>
                             <h3>Our Mission</h3>
-                            <div class="visual-container">
-                                <i class="fas fa-mobile-alt visual-icon"></i>
-                            </div>
-                            <p>Create Kenya's most integrated digital financial ecosystem, combining banking and lifestyle services.</p>
+                            <p>Create Kenya's most integrated digital financial ecosystem combining banking, lifestyle services, and cross-border capabilities.</p>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
                             <h3>Our Vision</h3>
-                            <div class="visual-container">
-                                <i class="fas fa-globe visual-icon"></i>
-                            </div>
-                            <p>Serve the next generation with earning opportunities and global connectivity.</p>
+                            <p>Serve the next generation of customers with earning opportunities, entertainment, and global connectivity beyond traditional banking.</p>
                         </div>
+                    </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>This JV isn't about replacing Faulu's strengths but enhancing them with digital capabilities to capture new customer segments and revenue streams without massive internal CAPEX.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 4: MARKET OPPORTUNITY -->
+            <!-- SLIDE 4: WHY FAULU -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Market Opportunity</h2>
+                <div class="slide-content">
+                    <h2>Why Faulu Microfinance Bank?</h2>
                     <div class="divider"></div>
+                    
                     <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>The Gap</h3>
-                            <ul>
-                                <li>Limited cross-border solutions</li>
-                                <li>No true lifestyle banking ecosystem</li>
-                                <li>Underserved young demographics</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Regulatory Excellence</h3>
+                            <p>CBK-licensed DTM with proven compliance framework and 30+ years market presence.</p>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>The Opportunity</h3>
-                            <ul>
-                                <li>Lead in digital finance</li>
-                                <li>Capture remittance revenue</li>
-                                <li>Acquire next-gen users</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-users"></i></div>
+                            <h3>Customer Base</h3>
+                            <p><strong>102,371+</strong> existing clients providing immediate scale and trust foundation.</p>
                         </div>
                     </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
-                        <canvas id="marketChart"></canvas>
-                    </div>
-                </div>
-            </section>
 
-            <!-- SLIDE 5: STRATEGIC VALUE-ADDS -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Strategic Value-Adds</h2>
-                    <div class="divider"></div>
                     <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Digital Ecosystem</h3>
-                            <div class="visual-container">
-                                <i class="fas fa-network-wired visual-icon"></i>
-                            </div>
-                            <ul>
-                                <li>Rewards (MSTRearn)</li>
-                                <li>Content (MSTRtv)</li>
-                                <li>Device bundles</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-chart-bar"></i></div>
+                            <h3>Financial Strength</h3>
+                            <p>CAR: <strong>15%</strong> | PAR30: <strong>3%</strong> | OSS: <strong>120%</strong><br>Exceeding all regulatory benchmarks.</p>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>Cross-Border & Analytics</h3>
-                            <div class="visual-container">
-                                <i class="fas fa-chart-line visual-icon"></i>
-                            </div>
-                            <ul>
-                                <li>Remittance inflows</li>
-                                <li>Data-driven credit scoring</li>
-                                <li>Personalized offers</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-network-wired"></i></div>
+                            <h3>Infrastructure</h3>
+                            <p>Existing branches, agent network, and digital infrastructure (DigiCash app, USSD).</p>
                         </div>
+                    </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>Faulu's existing compliance framework and customer trust allow us to focus resources on growth and innovation rather than building regulatory foundations from scratch.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 6: THE FUSION -->
+            <!-- SLIDE 5: EQUITY STRUCTURE -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>The Fusion of Strengths</h2>
+                <div class="slide-content">
+                    <h2>LOI Clause 3: Equity & Ownership</h2>
                     <div class="divider"></div>
-                    <div class="fusion-graphic">
-                        <div class="col animate-in">
-                            <h3>Faulu's Foundation</h3>
-                            <div class="visual-container">
-                                <img src="faulu-logo.png" alt="Faulu Logo" loading="lazy">
-                            </div>
-                            <ul>
-                                <li>Regulatory Trust</li>
-                                <li>102,371+ Customers</li>
-                                <li>Microfinance Expertise</li>
-                            </ul>
-                        </div>
-                        <div class="fusion-arrow animate-in" style="animation-delay: 0.2s;">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                        <div class="col animate-in" style="animation-delay: 0.4s;">
-                            <h3>MSTRpay's Engine</h3>
-                            <div class="visual-container">
-                                <img src="mstrpay-logo.png" alt="MSTRpay Logo" loading="lazy">
-                            </div>
-                            <ul>
-                                <li>Global Tech Platform</li>
-                                <li>Cross-Border Payments</li>
-                                <li>Lifestyle Ecosystem</li>
-                            </ul>
-                        </div>
-                        <div class="fusion-arrow animate-in" style="animation-delay: 0.6s;">
-                            <i class="fas fa-equals"></i>
-                        </div>
-                        <div class="col animate-in" style="animation-delay: 0.8s;">
-                            <h3>MSTRCash Kenya Ltd</h3>
-                            <div class="visual-container">
-                                <i class="fas fa-handshake visual-icon"></i>
-                            </div>
-                            <p>Kenya's leading digital bank</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 7: EQUITY STRUCTURE -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Equity & Ownership</h2>
-                    <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>50/50 Partnership</h3>
-                        <p><strong>MSTRPAY:</strong> 50% equity</p>
-                        <p><strong>Faulu:</strong> 50% equity</p>
+                    
+                    <div class="loi-clause">
+                        <h3>50/50 Ownership Structure</h3>
+                        <p><strong>MSTRPAY:</strong> 50% equity interest</p>
+                        <p><strong>Faulu Microfinance Bank:</strong> 50% equity interest</p>
                         <p><strong>Entity:</strong> MSTRCash Kenya Ltd</p>
                     </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
+
+                    <div class="chart-container">
                         <canvas id="equityChart"></canvas>
                     </div>
-                </div>
-            </section>
 
-            <!-- SLIDE 8: CAPITAL CONTRIBUTION -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Capital Contribution</h2>
-                    <div class="divider"></div>
-                    <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Initial Capital</h3>
-                            <p><strong>MSTRPAY:</strong> €25,000 – €50,000 for:</p>
-                            <ul>
-                                <li>Incorporation & legal</li>
-                                <li>Marketing campaigns</li>
-                                <li>Agent onboarding</li>
-                            </ul>
-                        </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>Growth Incentives</h3>
-                            <p><strong>Faulu:</strong> €3 in MSTRpay shares per verified user</p>
-                            <p>MSTRPAY matches Faulu's capital in shares</p>
-                        </div>
-                    </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
-                        <canvas id="capitalChart"></canvas>
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>True partnership model ensures aligned incentives. Both parties have equal stake in success and equal say in strategic direction, preventing any majority-minority conflicts.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 9: CUSTOMER-LINKED EQUITY -->
+            <!-- SLIDE 6: CAPITAL CONTRIBUTION -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Customer-Linked Equity</h2>
+                <div class="slide-content">
+                    <h2>LOI Clause 4: Capital Contribution</h2>
                     <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>Growth-Based Capital</h3>
-                        <p>Per verified customer:</p>
+                    
+                    <div class="loi-clause">
+                        <h3>Initial Capitalization</h3>
+                        <p><strong>MSTRPAY</strong> shall allocate <strong>€25,000 – €50,000</strong> initial working capital for:</p>
                         <ul>
-                            <li><strong>Faulu:</strong> €0.50 equity</li>
-                            <li><strong>MSTRPAY:</strong> €0.50 equity</li>
-                            <li><strong>Total:</strong> €1.00 per customer</li>
-                        </ul>
-                        <p>Ownership remains 50/50.</p>
-                    </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
-                        <canvas id="growthChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 10: PROFIT SHARING -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Profit Sharing & IP</h2>
-                    <div class="divider"></div>
-                    <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Revenue Distribution</h3>
-                            <p>Profits distributed <strong>50/50</strong></p>
-                            <div class="visual-container">
-                                <i class="fas fa-money-bill-wave visual-icon"></i>
-                            </div>
-                        </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>IP & Ecosystem</h3>
-                            <p>MSTRPAY retains tech IP</p>
-                            <p>Access to MSTRearn, MSTRtv</p>
-                            <div class="visual-container">
-                                <i class="fas fa-copyright visual-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 11: OFFICE SPACE -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Office Space</h2>
-                    <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>Faulu's Commitment</h3>
-                        <ul>
-                            <li>Equipped office in Nairobi</li>
-                            <li>Space for 4 MSTRPAY staff</li>
-                            <li>Maintained throughout</li>
+                            <li>Incorporation and legal setup</li>
+                            <li>Launch marketing campaigns</li>
+                            <li>Agent onboarding programs</li>
+                            <li>Initial operational expenses</li>
                         </ul>
                     </div>
-                    <div class="visual-container animate-in" style="animation-delay: 0.4s;">
-                        <i class="fas fa-building visual-icon"></i>
+
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-euro-sign"></i></div>
+                            <h3>Equity Matching</h3>
+                            <p>MSTRPAY shall match Faulu's Tier 1 and Tier 2 equity capital in MSTRPAY shares.</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-user-plus"></i></div>
+                            <h3>Client Incentive</h3>
+                            <p>Faulu receives <strong>€3 in MSTRpay shares</strong> per verified active user onboarded through the JV.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 12: EXPANSION PLANS -->
+            <!-- SLIDE 7: CUSTOMER-LINKED EQUITY -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Future Expansion</h2>
+                <div class="slide-content">
+                    <h2>LOI Clause 5: Customer-Linked Equity</h2>
                     <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>Growth Pathway</h3>
+                    
+                    <div class="loi-clause">
+                        <h3>Growth-Based Capital Reinforcement</h3>
+                        <p>For each new verified customer registered by MSTRCash Kenya Ltd:</p>
                         <ul>
-                            <li>Mobile Money Operator licence</li>
-                            <li>MSTRBank Kenya Ltd</li>
-                            <li>Burundi model replication</li>
+                            <li><strong>Faulu contributes €0.50</strong> in additional paid-in equity</li>
+                            <li><strong>MSTRPAY contributes €0.50</strong> in additional paid-in equity</li>
+                            <li><strong>Total: €1.00 per new customer</strong> to strengthen capital base</li>
+                        </ul>
+                        <p>Ownership remains 50/50 at all times. Customer count certified quarterly by company auditors.</p>
+                    </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>This innovative model ensures the JV's capital grows proportionally with its customer base, maintaining financial stability while scaling operations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: PROFIT SHARING -->
+            <section>
+                <div class="slide-content">
+                    <h2>LOI Clause 6: Profit Sharing & IP</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-money-bill-wave"></i></div>
+                            <h3>Profit Distribution</h3>
+                            <p>Profits distributed <strong>50/50</strong> in accordance with equity ownership</p>
+                            <p>Subject to operational performance and agreed KPIs</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-copyright"></i></div>
+                            <h3>Intellectual Property</h3>
+                            <p>MSTRPAY retains ownership of mobile application, platform infrastructure, data, and IP rights</p>
+                            <p>All customers become global MSTRPAY users with access to ecosystem services</p>
+                        </div>
+                    </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>Faulu gains access to MSTRpay's entire ecosystem (MSTRearn, MSTRtv, cross-border rails) without the development cost or time investment.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: OFFICE SPACE -->
+            <section>
+                <div class="slide-content">
+                    <h2>LOI Clause 7: Office Space Provision</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="loi-clause">
+                        <h3>Infrastructure Commitment</h3>
+                        <p><strong>Faulu</strong> shall provide, at its own cost:</p>
+                        <ul>
+                            <li>Suitable and fully equipped office space within its principal place of business</li>
+                            <li>Space for <strong>four (4) designated MSTRPAY employees</strong></li>
+                            <li>Properly maintained and conducive to professional work</li>
+                            <li>For the entire duration of the Agreement</li>
                         </ul>
                     </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>Co-location of teams ensures seamless collaboration, faster decision-making, and integration of MSTRpay's expertise with Faulu's market knowledge.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: EXPANSION PLANS -->
+            <section>
+                <div class="slide-content">
+                    <h2>LOI Clause 8: Future Expansion</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="loi-clause">
+                        <h3>Strategic Growth Pathway</h3>
+                        <p>The Parties recognize the potential to extend scope by:</p>
+                        <ul>
+                            <li>Applying for a <strong>Mobile Money Operator (MRO) licence</strong></li>
+                            <li>Establishing <strong>MSTRBank Kenya Ltd</strong> with a licensed Class A commercial bank</li>
+                            <li>Following the successful model demonstrated in Burundi</li>
+                        </ul>
+                    </div>
+
                     <div class="two-column">
-                        <div class="col animate-in" style="animation-delay: 0.4s;">
-                            <h3>MSTRCash Launch</h3>
-                            <p>Digital microfinance platform</p>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>MRO Licence</h3>
+                            <p>Enables full mobile money operations, competitive with major players</p>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.6s;">
-                            <h3>MSTRBank Kenya</h3>
-                            <p>Class A commercial banking</p>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-university"></i></div>
+                            <h3>Class A Banking</h3>
+                            <p>Expansion into full commercial banking services and products</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 13: FINANCIAL PREREQUISITE -->
+            <!-- SLIDE 11: BINDING EFFECT -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Financial Metrics</h2>
+                <div class="slide-content">
+                    <h2>LOI Clause 9: Binding Effect</h2>
                     <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>Faulu's Standing</h3>
+                    
+                    <div class="loi-clause">
+                        <h3>Commitment Framework</h3>
+                        <p>This LOI is intended as a <strong>binding framework</strong> regarding:</p>
+                        <ul>
+                            <li>Equity structure and ownership</li>
+                            <li>Capital commitments</li>
+                            <li>Profit-sharing principles</li>
+                            <li>Customer-linked equity top-up obligations</li>
+                        </ul>
+                        <p>Detailed governance, operational management, and regulatory approvals to be specified in the final Joint Venture Agreement (JVA).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: FINANCIAL PREREQUISITE -->
+            <section>
+                <div class="slide-content">
+                    <h2>LOI Clause 2A: Financial Prerequisite</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="loi-clause">
+                        <h3>Faulu's Verified Financial Standing</h3>
+                        <p>As prerequisite to the JV establishment, the Parties acknowledge:</p>
                         <ul>
                             <li><strong>Clients:</strong> 102,371</li>
-                            <li><strong>CAR:</strong> 15%</li>
-                            <li><strong>PAR30:</strong> 3%</li>
-                            <li><strong>OSS:</strong> 120%</li>
+                            <li><strong>Capital Adequacy Ratio (CAR):</strong> 15% (exceeds DTM minimum requirement)</li>
+                            <li><strong>Portfolio at Risk (PAR30):</strong> 3% (excellent)</li>
+                            <li><strong>Operational Self-Sufficiency (OSS):</strong> 120% (sustainable)</li>
                         </ul>
-                    </div>
-                    <div class="chart-container animate-in" style="animation-delay: 0.4s;">
-                        <canvas id="financialChart"></canvas>
+                        <p>This position demonstrates compliance with regulatory benchmarks and provides a solid foundation for MSTRCash Kenya Ltd's capitalization and stability.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 14: BINDING EFFECT -->
+            <!-- SLIDE 13: OPERATIONAL FRAMEWORK -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Binding Effect</h2>
+                <div class="slide-content">
+                    <h2>Operational Framework</h2>
                     <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>LOI Framework</h3>
-                        <ul>
-                            <li>Equity structure</li>
-                            <li>Capital commitments</li>
-                            <li>Profit-sharing</li>
-                            <li>Customer-linked equity</li>
-                        </ul>
-                        <p>Details in Joint Venture Agreement.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 15: OPERATIONAL CONSIDERATIONS -->
-            <section>
-                <div class="slide-content animate-in">
-                    <h2>Operational Roles</h2>
-                    <div class="divider"></div>
+                    
                     <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Faulu's Role</h3>
+                        <div class="col">
+                            <h3>Faulu's Responsibilities</h3>
                             <ul>
-                                <li>Compliance & KYC</li>
-                                <li>Office infrastructure</li>
-                                <li>Local expertise</li>
+                                <li>Regulatory compliance & KYC oversight</li>
+                                <li>Office space & local infrastructure</li>
+                                <li>Brand trust & customer credibility</li>
+                                <li>Existing customer base integration</li>
+                                <li>Local market expertise</li>
                             </ul>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>MSTRpay's Role</h3>
+                        <div class="col">
+                            <h3>MSTRpay's Responsibilities</h3>
                             <ul>
-                                <li>Tech platform</li>
-                                <li>Digital marketing</li>
-                                <li>Cross-border payments</li>
+                                <li>Technology platform & development</li>
+                                <li>Digital marketing & customer acquisition</li>
+                                <li>Cross-border payment rails</li>
+                                <li>Ecosystem services (MSTRearn, MSTRtv)</li>
+                                <li>Global expertise & best practices</li>
                             </ul>
                         </div>
+                    </div>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>Clear division of responsibilities allows each party to focus on their core competencies while creating a complete offering that exceeds the sum of its parts.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 16: RISK MITIGATION -->
+            <!-- SLIDE 14: RISK MITIGATION -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Risk Mitigation</h2>
+                <div class="slide-content">
+                    <h2>Risk Mitigation Strategy</h2>
                     <div class="divider"></div>
+                    
                     <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Risks</h3>
-                            <ul>
-                                <li>High onboarding costs</li>
-                                <li>Tech failures</li>
-                                <li>Regulatory issues</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Regulatory Compliance</h3>
+                            <p>Faulu maintains ultimate regulatory responsibility and oversight</p>
+                            <p>MSTRpay provides compliant technology tools and processes</p>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>Mitigation</h3>
-                            <ul>
-                                <li>Phased pilot</li>
-                                <li>Proven tech demos</li>
-                                <li>Early compliance</li>
-                            </ul>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+                            <h3>Customer Protection</h3>
+                            <p>All customers remain Faulu customers first</p>
+                            <p>Enhanced security and fraud prevention systems</p>
+                        </div>
+                    </div>
+
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                            <h3>Financial Stability</h3>
+                            <p>Growth-linked capital reinforcement model</p>
+                            <p>Phased investment approach</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
+                            <h3>Exit Strategy</h3>
+                            <p>Clear terms for unwind scenarios</p>
+                            <p>Customer ownership protection</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 17: IMPLEMENTATION ROADMAP -->
+            <!-- SLIDE 15: IMPLEMENTATION ROADMAP -->
             <section>
-                <div class="slide-content animate-in">
+                <div class="slide-content">
                     <h2>Implementation Roadmap</h2>
                     <div class="divider"></div>
+                    
                     <div class="two-column">
-                        <div class="col animate-in">
-                            <h3>Phase 1: Foundation</h3>
-                            <p>Weeks 1-4</p>
+                        <div class="col">
+                            <h3>Phase 1: Foundation (Weeks 1-4)</h3>
                             <ul>
-                                <li>LOI execution</li>
-                                <li>Board approvals</li>
+                                <li>LOI execution & board approvals</li>
+                                <li>Regulatory engagement with CBK</li>
+                                <li>Technical team alignment</li>
+                                <li>Office space preparation</li>
                             </ul>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h3>Phase 2: Build</h3>
-                            <p>Weeks 5-12</p>
+                        <div class="col">
+                            <h3>Phase 2: Build (Weeks 5-12)</h3>
                             <ul>
                                 <li>Platform integration</li>
-                                <li>Agent onboarding</li>
+                                <li>Agent onboarding programs</li>
+                                <li>Marketing material development</li>
+                                <li>Compliance framework setup</li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="two-column">
-                        <div class="col animate-in" style="animation-delay: 0.4s;">
-                            <h3>Phase 3: Launch</h3>
-                            <p>Weeks 13-16</p>
+                        <div class="col">
+                            <h3>Phase 3: Launch (Weeks 13-16)</h3>
                             <ul>
-                                <li>Pilot program</li>
-                                <li>Soft launch</li>
+                                <li>Pilot program with select customers</li>
+                                <li>Soft launch & testing</li>
+                                <li>Feedback collection & optimization</li>
                             </ul>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.6s;">
-                            <h3>Phase 4: Scale</h3>
-                            <p>Month 5+</p>
+                        <div class="col">
+                            <h3>Phase 4: Scale (Month 5+)</h3>
                             <ul>
-                                <li>Full rollout</li>
-                                <li>Customer acquisition</li>
+                                <li>Full market rollout</li>
+                                <li>Aggressive customer acquisition</li>
+                                <li>Continuous feature development</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 18: CALL TO ACTION -->
+            <!-- SLIDE 16: FINANCIAL PROJECTIONS -->
             <section>
-                <div class="slide-content animate-in">
-                    <h2>Next Steps</h2>
+                <div class="slide-content">
+                    <h2>Financial Projections</h2>
                     <div class="divider"></div>
-                    <div class="loi-clause animate-in" style="animation-delay: 0.2s;">
-                        <h3>Action Items</h3>
-                        <ul>
-                            <li>Sign LOI within 7 days</li>
-                            <li>Appoint Faulu sponsor</li>
-                            <li>Launch pilot in 4 months</li>
-                        </ul>
+                    
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
                     </div>
-                    <a href="dashboard.html" class="btn"><i class="fas fa-chart-line"></i> View Dashboard</a>
+
+                    <div class="two-column">
+                        <div class="col">
+                            <h3>Revenue Streams</h3>
+                            <ul>
+                                <li>Transaction fees</li>
+                                <li>Cross-border remittances</li>
+                                <li>Lifestyle services</li>
+                                <li>Device bundling</li>
+                                <li>Data monetization</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h3>Key Metrics</h3>
+                            <ul>
+                                <li>Customer acquisition cost: <€5</li>
+                                <li>Lifetime value: €150+</li>
+                                <li>Break-even: Month 14</li>
+                                <li>Year 3 ROI: 280%</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- SLIDE 19: SIGNATURES & CONTACT -->
+            <!-- SLIDE 17: NEXT STEPS -->
             <section>
-                <div class="slide-content animate-in">
+                <div class="slide-content">
+                    <h2>Next Steps & Commitment</h2>
+                    <div class="divider"></div>
+                    
+                    <ol>
+                        <li><strong>LOI Execution:</strong> Formal signing by authorized representatives</li>
+                        <li><strong>Board Approval:</strong> Internal presentations and approvals</li>
+                        <li><strong>Regulatory Engagement:</strong> Joint meeting with CBK</li>
+                        <li><strong>Technical Kickoff:</strong> Team alignment and integration planning</li>
+                        <li><strong>JVA Drafting:</strong> Legal teams collaborate on final agreement</li>
+                    </ol>
+
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>We propose a 90-day timeline from LOI signing to pilot launch, demonstrating our commitment to rapid execution and time-to-market advantage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: SIGNATURES & CONTACT -->
+            <section>
+                <div class="slide-content">
                     <h2>Signatures & Contact</h2>
                     <div class="divider"></div>
-                    <div class="two-column">
-                        <div class="col animate-in">
-                            <h4>MSTRPay AG</h4>
-                            <p>Peter Rinaldo<br>Chief Partnership Officer</p>
+                    
+                    <div class="signature-block">
+                        <div class="signature">
+                            <h4>For MSTRPay AG</h4>
+                            <p>Peter Rinaldo</p>
+                            <p>Chief Partnership Officer</p>
+                            <div class="signature-line"></div>
                         </div>
-                        <div class="col animate-in" style="animation-delay: 0.2s;">
-                            <h4>Faulu Microfinance</h4>
-                            <p>George A. Maina<br>Chairman of the Board</p>
+                        
+                        <div class="signature">
+                            <h4>For Faulu Microfinance Bank</h4>
+                            <p>George A. Maina</p>
+                            <p>Chairman of the Board</p>
+                            <div class="signature-line"></div>
                         </div>
                     </div>
-                    <div class="contact-footer animate-in" style="animation-delay: 0.4s;">
-                        <h4>Contact</h4>
-                        <p><strong>Otieno Abraham</strong><br>Email: otieno.abraham@mstrpay.com<br>Phone: +254 735 296 125</p>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://mstrpay.com/contact" alt="Contact QR Code" loading="lazy">
+
+                    <div class="contact-footer">
+                        <h4>Project Lead Contact</h4>
+                        <p><strong>Otieno Abraham</strong> | Country Representative Lead - Kenya</p>
+                        <p>Email: otieno.abraham@mstrpay.com | Phone: +254 735 296 125</p>
+                        <p>Availability: 30 Minutes response time for all inquiries</p>
                     </div>
+
+                    <a href="dashboard.html" class="btn">
+                        <i class="fas fa-chart-line"></i> View Financial Dashboard
+                    </a>
                 </div>
             </section>
+
         </div>
     </div>
 
     <div class="controls">
-        <button id="prev-btn" aria-label="Previous Slide"><i class="fas fa-arrow-left"></i></button>
-        <button id="next-btn" aria-label="Next Slide"><i class="fas fa-arrow-right"></i></button>
+        <button id="prev-btn"><i class="fas fa-arrow-left"></i></button>
+        <button id="next-btn"><i class="fas fa-arrow-right"></i></button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            try {
-                // Initialize Charts
-                Chart.register(ChartDataLabels);
-                const chartOptions = {
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('section');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progressBar = document.querySelector('.progress-bar');
+            const slideNumberEl = document.querySelector('.slide-number');
+            let currentSlide = 0;
+
+            // Initialize Charts
+            const equityCtx = document.getElementById('equityChart').getContext('2d');
+            const equityChart = new Chart(equityCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Faulu MFB (50%)', 'MSTRpay (50%)'],
+                    datasets: [{
+                        data: [50, 50],
+                        backgroundColor: ['#ff9a00', '#0052cc'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { position: 'bottom', labels: { font: { size: 12, family: 'Inter' } } },
-                        title: { display: true, font: { size: 16, family: 'Inter' } },
-                        datalabels: { color: '#1a2d45', font: { family: 'Inter', size: 12 } }
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Equity Ownership Structure', font: { size: 16 } }
                     }
-                };
-
-                new Chart(document.getElementById('marketChart').getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Digital Loans', 'Cross-Border', 'Lifestyle'],
-                        datasets: [{
-                            label: 'Revenue (€)',
-                            data: [800000, 400000, 200000],
-                            backgroundColor: ['#0052cc', '#ff9a00', '#28a745'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Market Opportunity' }, datalabels: { anchor: 'end', align: 'top', formatter: value => `€${(value/1000).toFixed(0)}K` } },
-                        scales: { y: { beginAtZero: true, ticks: { callback: value => `€${(value/1000).toFixed(0)}K` } } }
-                    }
-                });
-
-                new Chart(document.getElementById('equityChart').getContext('2d'), {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Faulu', 'MSTRpay'],
-                        datasets: [{ data: [50, 50], backgroundColor: ['#ff9a00', '#0052cc'], borderWidth: 0 }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Equity Structure' }, datalabels: { formatter: value => `${value}%` } }
-                    }
-                });
-
-                new Chart(document.getElementById('capitalChart').getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: ['Initial Capital', 'Growth Incentives'],
-                        datasets: [{ data: [60, 40], backgroundColor: ['#0052cc', '#ff9a00'], borderWidth: 0 }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Capital Contribution' }, datalabels: { formatter: value => `${value}%` } }
-                    }
-                });
-
-                new Chart(document.getElementById('growthChart').getContext('2d'), {
-                    type: 'line',
-                    data: {
-                        labels: ['Launch', 'Year 1', 'Year 2'],
-                        datasets: [{
-                            label: 'Customers',
-                            data: [102371, 200000, 300000],
-                            borderColor: '#ff9a00',
-                            backgroundColor: 'rgba(255, 154, 0, 0.2)',
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Customer Growth' }, datalabels: { anchor: 'end', align: 'top', formatter: value => `${(value/1000).toFixed(0)}K` } },
-                        scales: { y: { beginAtZero: true, ticks: { callback: value => `${(value/1000).toFixed(0)}K` } } }
-                    }
-                });
-
-                new Chart(document.getElementById('revenueChart').getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Faulu', 'MSTRpay'],
-                        datasets: [{ label: 'Profit Share', data: [50, 50], backgroundColor: ['#ff9a00', '#0052cc'], borderWidth: 0 }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Profit Sharing' }, datalabels: { formatter: value => `${value}%` } },
-                        scales: { y: { beginAtZero: true, max: 100 } }
-                    }
-                });
-
-                new Chart(document.getElementById('financialChart').getContext('2d'), {
-                    type: 'radar',
-                    data: {
-                        labels: ['Clients', 'CAR (%)', 'PAR30 (%)', 'OSS (%)'],
-                        datasets: [{
-                            label: 'Faulu Metrics',
-                            data: [80, 15, 97, 120],
-                            backgroundColor: 'rgba(0, 82, 204, 0.2)',
-                            borderColor: '#0052cc'
-                        }]
-                    },
-                    options: {
-                        ...chartOptions,
-                        plugins: { ...chartOptions.plugins, title: { text: 'Financial Metrics' } },
-                        scales: { r: { suggestedMin: 0, suggestedMax: 120 } }
-                    }
-                });
-
-                // Slide Navigation
-                const slides = document.querySelectorAll('section');
-                const prevBtn = document.getElementById('prev-btn');
-                const nextBtn = document.getElementById('next-btn');
-                const progressBar = document.querySelector('.progress-bar');
-                const navBar = document.querySelector('.nav-bar');
-                let currentSlide = 0;
-
-                // Initialize Nav Bar (Dots)
-                slides.forEach((_, index) => {
-                    const navItem = document.createElement('div');
-                    navItem.classList.add('nav-item');
-                    navItem.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                    navItem.addEventListener('click', () => {
-                        currentSlide = index;
-                        updateSlide();
-                    });
-                    navBar.appendChild(navItem);
-                });
-
-                function updateSlide() {
-                    slides.forEach(slide => slide.classList.remove('active'));
-                    slides[currentSlide].classList.add('active');
-                    progressBar.style.width = `${(currentSlide / (slides.length - 1)) * 100}%`;
-                    document.querySelectorAll('.nav-item').forEach((nav, index) => {
-                        nav.classList.toggle('active', index === currentSlide);
-                    });
                 }
+            });
 
-                prevBtn.addEventListener('click', () => {
-                    if (currentSlide > 0) {
-                        currentSlide--;
-                        updateSlide();
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [{
+                        label: 'Projected Revenue (€)',
+                        data: [450000, 950000, 1850000],
+                        backgroundColor: '#0052cc',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: '3-Year Revenue Projection', font: { size: 16 } }
                     }
-                });
+                }
+            });
 
-                nextBtn.addEventListener('click', () => {
-                    if (currentSlide < slides.length - 1) {
-                        currentSlide++;
-                        updateSlide();
-                    }
-                });
+            function updateSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
 
-                document.addEventListener('keydown', e => {
-                    if (e.key === 'ArrowRight') nextBtn.click();
-                    if (e.key === 'ArrowLeft') prevBtn.click();
-                });
+                const progress = (currentSlide / (slides.length - 1)) * 100;
+                progressBar.style.width = progress + '%';
 
-                // Loader
-                setTimeout(() => {
-                    document.querySelector('.loader').classList.add('hidden');
-                }, 1500);
-
-                updateSlide();
-            } catch (error) {
-                console.error('Error:', error);
+                slideNumberEl.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
             }
+
+            function goToNextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function goToPrevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            nextBtn.addEventListener('click', goToNextSlide);
+            prevBtn.addEventListener('click', goToPrevSlide);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight') goToNextSlide();
+                if (event.key === 'ArrowLeft') goToPrevSlide();
+            });
+
+            let touchStartX = 0;
+            document.querySelector('.slides').addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+            document.querySelector('.slides').addEventListener('touchend', e => {
+                let touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) goToNextSlide();
+                if (touchEndX > touchStartX + 50) goToPrevSlide();
+            });
+
+            updateSlide();
         });
     </script>
 </body>
