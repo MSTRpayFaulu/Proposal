@@ -13,19 +13,24 @@
             --color-dark: #2a4b6a;
             --color-light: #f8f9fa;
             --color-success: #28a745;
-            --color-gradient: linear-gradient(115deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            --color-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
+            background: var(--color-light);
             color: #333;
             height: 100%;
+            overflow: hidden;
         }
         .dashboard-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            height: 100vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-primary) #eee;
         }
         .dashboard-header {
             text-align: center;
@@ -37,18 +42,56 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         .dashboard-header h1 {
-            font-size: 2.8rem;
+            font-size: clamp(2.2rem, 5vw, 2.8rem);
             margin-bottom: 0.5rem;
+            color: white;
         }
         .dashboard-header p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             opacity: 0.9;
+        }
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            background: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--color-dark);
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background: var(--color-gradient);
+            color: white;
+        }
+        .tab-btn:hover {
+            transform: scale(1.05);
+        }
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .tab-content.active {
+            display: block;
         }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .metric-card {
             background: white;
@@ -57,36 +100,37 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         .metric-card:hover {
             transform: translateY(-5px);
         }
         .metric-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
             background: var(--color-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         .metric-value {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             font-weight: 700;
             color: var(--color-primary);
             margin-bottom: 0.5rem;
         }
         .metric-label {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: var(--color-dark);
         }
         .charts-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        @media (max-width: 968px) {
-            .charts-grid { grid-template-columns: 1fr; }
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .chart-container {
             background: white;
@@ -96,29 +140,31 @@
         }
         .chart-container h3 {
             color: var(--color-dark);
+            font-size: clamp(1.4rem, 3vw, 1.7rem);
             margin-bottom: 1rem;
             text-align: center;
         }
         .chart-box {
             position: relative;
-            height: 300px;
+            height: 320px;
             width: 100%;
         }
         .projection-section {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 2rem;
         }
         .projection-section h2 {
             color: var(--color-dark);
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .projection-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
         .projection-card {
@@ -129,11 +175,34 @@
         }
         .projection-card h4 {
             color: var(--color-primary);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             margin-bottom: 0.5rem;
+        }
+        .projection-card p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #444;
+        }
+        .strategy-note {
+            background: #e8f4fc;
+            border-left: 4px solid var(--color-primary);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .strategy-note h4 {
+            color: var(--color-primary);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .strategy-note h4 i {
+            margin-right: 0.5rem;
         }
         .cta-container {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             padding: 2rem;
             background: var(--color-gradient);
             color: white;
@@ -141,17 +210,18 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         .cta-container h2 {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             margin-bottom: 1rem;
         }
         .btn {
             display: inline-block;
             background: white;
             color: var(--color-primary);
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            margin-top: 1rem;
+            margin: 0.5rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
@@ -159,79 +229,213 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        .modal-content h3 {
+            color: var(--color-dark);
+            font-size: clamp(1.4rem, 3vw, 1.7rem);
+            margin-bottom: 1rem;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-dark);
+        }
+        @media (max-width: 968px) {
+            .charts-grid { grid-template-columns: 1fr; }
+            .metrics-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .dashboard-container { padding: 1.5rem; }
+            .dashboard-header { padding: 1.5rem; }
+            .tab-nav { flex-wrap: wrap; }
+            .tab-btn { padding: 0.6rem 1.2rem; }
+            .chart-box { height: 280px; }
+        }
+        @media (max-width: 480px) {
+            .dashboard-container { padding: 1rem; }
+            .dashboard-header { padding: 1rem; }
+            .tab-btn { font-size: clamp(0.8rem, 2vw, 0.9rem); }
+        }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
         <div class="dashboard-header">
             <h1><i class="fas fa-chart-line"></i> MSTRCash Kenya Vision Dashboard</h1>
-            <p>Projected Performance & Growth Metrics</p>
+            <p>Projected Performance & Growth Metrics for the MSTRpay-Faulu Joint Venture</p>
         </div>
 
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-users"></i></div>
-                <div class="metric-value">102,371+</div>
-                <div class="metric-label">Existing Faulu Clients</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-user-plus"></i></div>
-                <div class="metric-value">50,000</div>
-                <div class="metric-label">Y1 Target New Clients</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-euro-sign"></i></div>
-                <div class="metric-value">€150,000</div>
-                <div class="metric-label">Projected Y1 Revenue Share</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-money-bill-wave"></i></div>
-                <div class="metric-value">+120%</div>
-                <div class="metric-label">Growth in Digital Transactions</div>
-            </div>
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="metrics">Key Metrics</button>
+            <button class="tab-btn" data-tab="charts">Charts</button>
+            <button class="tab-btn" data-tab="projections">Strategic Projections</button>
         </div>
 
-        <div class="charts-grid">
-            <div class="chart-container">
-                <h3>Customer Acquisition Forecast</h3>
-                <div class="chart-box">
-                    <canvas id="acquisitionChart"></canvas>
+        <div class="tab-content active" id="metrics">
+            <div class="metrics-grid">
+                <div class="metric-card" data-modal="clients">
+                    <div class="metric-icon"><i class="fas fa-users"></i></div>
+                    <div class="metric-value">102,371+</div>
+                    <div class="metric-label">Existing Faulu Clients</div>
+                </div>
+                <div class="metric-card" data-modal="new-clients">
+                    <div class="metric-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="metric-value">100,000</div>
+                    <div class="metric-label">Y1 Target New Clients</div>
+                </div>
+                <div class="metric-card" data-modal="revenue">
+                    <div class="metric-icon"><i class="fas fa-euro-sign"></i></div>
+                    <div class="metric-value">€450,000</div>
+                    <div class="metric-label">Projected Y1 Revenue</div>
+                </div>
+                <div class="metric-card" data-modal="roi">
+                    <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="metric-value">280%</div>
+                    <div class="metric-label">Year 3 ROI</div>
                 </div>
             </div>
-            <div class="chart-container">
-                <h3>Revenue Stream Projection</h3>
-                <div class="chart-box">
-                    <canvas id="revenueChart"></canvas>
-                </div>
+            <div class="strategy-note">
+                <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                <p>Leveraging Faulu’s existing client base and MSTRpay’s ecosystem to drive exponential growth in digital transactions and revenue.</p>
             </div>
         </div>
 
-        <div class="projection-section">
-            <h2><i class="fas fa-rocket"></i> Strategic Projections</h2>
-            <div class="projection-cards">
-                <div class="projection-card">
-                    <h4>Market Penetration</h4>
-                    <p>Targeting 15% of the digital lending market in Kenya within 24 months, focusing on youth and MSMEs.</p>
+        <div class="tab-content" id="charts">
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Customer Acquisition Forecast</h3>
+                    <div class="chart-box">
+                        <canvas id="acquisitionChart"></canvas>
+                    </div>
                 </div>
-                <div class="projection-card">
-                    <h4>Cross-Border Growth</h4>
-                    <p>Leveraging MSTRpay's rails to capture 5% of the remittance market flow within the first 18 months.</p>
+                <div class="chart-container">
+                    <h3>Revenue Stream Breakdown</h3>
+                    <div class="chart-box">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
                 </div>
-                <div class="projection-card">
-                    <h4>Brand Evolution</h4>
-                    <p>Positioning Faulu as the most innovative digital-first financial brand in Kenya.</p>
+                <div class="chart-container">
+                    <h3>Long-Term Revenue Projection</h3>
+                    <div class="chart-box">
+                        <canvas id="longTermRevenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="projections">
+            <div class="projection-section">
+                <h2><i class="fas fa-rocket"></i> Strategic Projections</h2>
+                <div class="projection-cards">
+                    <div class="projection-card">
+                        <h4>Market Penetration</h4>
+                        <p>Targeting 15% of the digital lending market in Kenya within 24 months, focusing on youth and MSMEs with MSTRpay’s super-app.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h4>Cross-Border Growth</h4>
+                        <p>Leveraging MSTRpay’s cross-border rails to capture 5% of the remittance market flow within 18 months.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h4>Ecosystem Engagement</h4>
+                        <p>Driving daily app usage through MSTRearn and MSTRtv, boosting loyalty and micro-earnings for users.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h4>Device Bundling</h4>
+                        <p>Expanding access via smartphone leasing, bringing 50,000+ new users into the digital economy by Year 2.</p>
+                    </div>
+                </div>
+                <div class="strategy-note">
+                    <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                    <p>Combining Faulu’s regulatory strength with MSTRpay’s ecosystem creates a future-proof digital bank for Kenya’s next generation.</p>
                 </div>
             </div>
         </div>
 
         <div class="cta-container">
             <h2>Ready to Build the Future Together?</h2>
-            <p>This dashboard illustrates the potential of our joint venture. Let's turn this vision into reality.</p>
+            <p>This dashboard illustrates the potential of MSTRCash Kenya Ltd. Let’s turn this vision into reality.</p>
             <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Main Proposal</a>
+            <button class="btn" id="show-details"><i class="fas fa-info-circle"></i> View Detailed Insights</button>
+        </div>
+
+        <div class="modal" id="details-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>Detailed Insights</h3>
+                <p id="modal-text">Click a metric to view detailed insights.</p>
+            </div>
         </div>
     </div>
 
     <script>
+        // Tab Navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('details-modal');
+        const modalText = document.getElementById('modal-text');
+        const closeBtn = document.querySelector('.close-btn');
+        const showDetailsBtn = document.getElementById('show-details');
+        const metricCards = document.querySelectorAll('.metric-card');
+
+        metricCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const modalData = {
+                    clients: '102,371+ Faulu clients provide a strong foundation for MSTRCash Kenya Ltd, enabling immediate scale and trust.',
+                    'new-clients': 'Targeting 100,000 new clients in Year 1 through MSTRpay’s digital acquisition strategies and Faulu’s market presence.',
+                    revenue: 'Year 1 revenue of €450,000 driven by transaction fees, remittances, lifestyle services, and device bundling.',
+                    roi: 'Projected 280% ROI by Year 3, reflecting high-margin revenue streams and efficient capital utilization.'
+                };
+                modalText.textContent = modalData[card.dataset.modal] || 'No details available.';
+                modal.style.display = 'flex';
+            });
+        });
+
+        showDetailsBtn.addEventListener('click', () => {
+            modalText.textContent = 'The MSTRpay-Faulu JV combines regulatory excellence with a cutting-edge digital ecosystem, targeting youth, MSMEs, and cross-border markets for exponential growth.';
+            modal.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', e => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+
         // Customer Acquisition Chart
         const acquisitionCtx = document.getElementById('acquisitionChart').getContext('2d');
         const acquisitionChart = new Chart(acquisitionCtx, {
@@ -251,7 +455,8 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: { display: true, text: 'Projected Customer Growth' }
+                    legend: { position: 'bottom', labels: { font: { size: 14 } } },
+                    title: { display: true, text: 'Projected Customer Growth', font: { size: 16 } }
                 }
             }
         });
@@ -261,18 +466,41 @@
         const revenueChart = new Chart(revenueCtx, {
             type: 'bar',
             data: {
-                labels: ['Digital Loans', 'Cross-Border', 'Lifestyle', 'Device Bundles'],
+                labels: ['Transaction Fees', 'Cross-Border', 'Lifestyle Services', 'Device Bundles', 'Data Monetization'],
                 datasets: [{
-                    label: 'Projected Revenue (Y1)',
-                    data: [80, 40, 20, 10],
-                    backgroundColor: ['#ff9a00', '#0052cc', '#28a745', '#6f42c1'],
+                    label: 'Projected Revenue (Y1, €000s)',
+                    data: [180, 120, 80, 50, 20],
+                    backgroundColor: ['#ff9a00', '#0052cc', '#28a745', '#6f42c1', '#dc3545']
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: { display: true, text: 'Revenue Stream Breakdown (%)' }
+                    legend: { position: 'bottom', labels: { font: { size: 14 } } },
+                    title: { display: true, text: 'Revenue Stream Breakdown', font: { size: 16 } }
+                }
+            }
+        });
+
+        // Long-Term Revenue Chart
+        const longTermRevenueCtx = document.getElementById('longTermRevenueChart').getContext('2d');
+        const longTermRevenueChart = new Chart(longTermRevenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Year 1', 'Year 2', 'Year 3'],
+                datasets: [{
+                    label: 'Projected Revenue (€)',
+                    data: [450000, 950000, 1850000],
+                    backgroundColor: '#0052cc'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 14 } } },
+                    title: { display: true, text: '3-Year Revenue Projection', font: { size: 16 } }
                 }
             }
         });
