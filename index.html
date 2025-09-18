@@ -65,7 +65,6 @@
             background-size: cover;
             background-position: center;
             overflow-y: auto;
-            /* Ensure scrollbars are visible if content overflows */
             scrollbar-width: thin;
             scrollbar-color: var(--color-primary) #eee;
         }
@@ -79,12 +78,12 @@
             max-width: 1200px;
             width: 90%;
             background: rgba(255, 255, 255, 0.98);
-            padding: 2rem 2.5rem; /* Adjusted padding for better text spacing */
+            padding: 2rem 2.5rem;
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             margin: 1rem auto;
-            overflow-y: auto; /* Ensure content within slide is scrollable if needed */
-            max-height: 90vh; /* Prevent content from exceeding viewport */
+            overflow-y: auto;
+            max-height: 90vh;
         }
 
         h1, h2, h3 {
@@ -95,7 +94,7 @@
         }
 
         h1 {
-            font-size: clamp(2.2rem, 5vw, 2.8rem); /* Responsive font size */
+            font-size: clamp(2.2rem, 5vw, 2.8rem);
             background: var(--color-gradient);
             -webkit-background-clip: text;
             background-clip: text;
@@ -103,26 +102,26 @@
         }
 
         h2 {
-            font-size: clamp(1.8rem, 4vw, 2.2rem); /* Responsive font size */
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
         }
 
         h3 {
-            font-size: clamp(1.4rem, 3vw, 1.7rem); /* Responsive font size */
+            font-size: clamp(1.4rem, 3vw, 1.7rem);
             color: var(--color-primary);
         }
 
         p, li {
-            font-size: clamp(1rem, 2.5vw, 1.2rem); /* Smaller, responsive font size */
-            line-height: 1.7; /* Increased line height for readability */
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.7;
             margin-bottom: 1rem;
-            color: #444; /* Slightly darker for better contrast */
+            color: #444;
         }
 
         ul, ol {
             text-align: left;
-            max-width: 90%; /* Prevent lists from touching edges */
+            max-width: 90%;
             margin: 0 auto;
-            padding-left: 1.5rem; /* Ensure proper indentation */
+            padding-left: 1.5rem;
         }
 
         li {
@@ -140,12 +139,12 @@
             align-items: center;
             flex-wrap: wrap;
             margin: 1.5rem 0;
-            gap: 1.5rem; /* Added gap for better spacing */
+            gap: 1.5rem;
         }
 
         .logo-container img {
             max-height: 80px;
-            max-width: 200px; /* Reduced width to prevent overflow */
+            max-width: 200px;
             object-fit: contain;
             margin: 0.5rem;
             border: 1px solid #eee;
@@ -173,7 +172,7 @@
 
         .col {
             flex: 1;
-            min-width: 280px; /* Slightly reduced for smaller screens */
+            min-width: 280px;
             background: white;
             padding: 1.5rem;
             border-radius: 16px;
@@ -216,9 +215,9 @@
 
         .chart-container {
             position: relative;
-            height: 280px; /* Slightly reduced height */
+            height: 280px;
             width: 100%;
-            max-width: 800px; /* Constrain chart width */
+            max-width: 800px;
             margin: 1rem auto;
         }
 
@@ -344,7 +343,6 @@
             margin: 0.5rem auto;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .slide-content {
                 padding: 1.5rem;
@@ -406,7 +404,7 @@
 <body>
 
     <div class="progress"><div class="progress-bar"></div></div>
-    <div class="slide-number">Slide 1 of 18</div>
+    <div class="slide-number">Slide 1 of 22</div>
 
     <div class="reveal">
         <div class="slides">
@@ -432,18 +430,50 @@
                     <h2>Presentation Agenda</h2>
                     <div class="divider"></div>
                     <ol>
+                        <li>The Market Opportunity</li>
                         <li>Executive Summary & Vision</li>
                         <li>Why Faulu is the Ideal Partner</li>
+                        <li>Introducing the MSTRpay Ecosystem</li>
+                        <li>Our Collaborative Framework</li>
                         <li>Detailed LOI Terms Walkthrough</li>
                         <li>Capital Structure & Financials</li>
                         <li>Operational Framework</li>
-                        <li>Strategic Expansion Plans</li>
+                        <li>Risk Mitigation Strategy</li>
+                        <li>Implementation Roadmap</li>
+                        <li>Why This is the Right Decision</li>
                         <li>Next Steps & Signatures</li>
                     </ol>
                 </div>
             </section>
 
-            <!-- SLIDE 3: EXECUTIVE SUMMARY -->
+            <!-- SLIDE 3: THE MARKET OPPORTUNITY -->
+            <section>
+                <div class="slide-content">
+                    <h2>The Market Opportunity</h2>
+                    <div class="divider"></div>
+                    <p>The competition offers loans. The market demands more.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <h3>The Gap</h3>
+                            <ul>
+                                <li>Limited cross-border solutions for MSMEs</li>
+                                <li>No true lifestyle banking ecosystem</li>
+                                <li>Young demographics are underserved</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h3>The Opportunity</h3>
+                            <ul>
+                                <li>Lead in integrated digital finance</li>
+                                <li>Capture revenue from remittances & lifestyle</li>
+                                <li>Acquire the next 100,000 users with a super-app</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: EXECUTIVE SUMMARY -->
             <section>
                 <div class="slide-content">
                     <h2>Executive Summary</h2>
@@ -470,7 +500,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 4: WHY FAULU -->
+            <!-- SLIDE 5: WHY FAULU -->
             <section>
                 <div class="slide-content">
                     <h2>Why Faulu Microfinance Bank?</h2>
@@ -509,7 +539,81 @@
                 </div>
             </section>
 
-            <!-- SLIDE 5: EQUITY STRUCTURE -->
+            <!-- SLIDE 6: INTRODUCING THE MSTRPAY ECOSYSTEM -->
+            <section>
+                <div class="slide-content">
+                    <h2>Introducing the MSTRpay Ecosystem</h2>
+                    <div class="divider"></div>
+                    <p>We provide the rocket fuel for digital growth.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-globe"></i></div>
+                            <h3>Cross-Border Rails</h3>
+                            <p>Seamless international payments and remittances</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-coins"></i></div>
+                            <h3>MSTRearn</h3>
+                            <p>Micro-earnings platform boosts engagement and loyalty</p>
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-tv"></i></div>
+                            <h3>MSTRtv & Media</h3>
+                            <p>Integrated content makes the app a daily destination</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>Device Bundling</h3>
+                            <p>Smartphone leasing brings new users into the digital economy</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: OUR COLLABORATIVE FRAMEWORK -->
+            <section>
+                <div class="slide-content">
+                    <h2>Our Collaborative Framework</h2>
+                    <div class="divider"></div>
+                    <p>Intelligent division of responsibilities for maximum impact and efficiency.</p>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Regulatory & Compliance</h3>
+                            <p><strong>Faulu Leads</strong></p>
+                            <p>Providing the DTM license, ultimate KYC oversight, and ensuring regulatory excellence</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-code"></i></div>
+                            <h3>Technology & Platform</h3>
+                            <p><strong>MSTRpay Leads</strong></p>
+                            <p>Providing the full tech stack, app development, security, and maintenance</p>
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-handshake"></i></div>
+                            <h3>Customer Trust & Brand</h3>
+                            <p><strong>Faulu Leads</strong></p>
+                            <p>Being the face of trust and credibility for the end customer</p>
+                        </div>
+                        <div class="col">
+                            <div class="icon-box"><i class="fas fa-bullhorn"></i></div>
+                            <h3>Growth & Marketing</h3>
+                            <p><strong>MSTRpay Leads</strong></p>
+                            <p>Driving digital customer acquisition, campaigns, and agent network expansion</p>
+                        </div>
+                    </div>
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>Each partner focuses on their core competencies, creating a seamless and powerful operation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: EQUITY STRUCTURE -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 3: Equity & Ownership</h2>
@@ -533,7 +637,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 6: CAPITAL CONTRIBUTION -->
+            <!-- SLIDE 9: CAPITAL CONTRIBUTION -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 4: Capital Contribution</h2>
@@ -565,7 +669,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 7: CUSTOMER-LINKED EQUITY -->
+            <!-- SLIDE 10: CUSTOMER-LINKED EQUITY -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 5: Customer-Linked Equity</h2>
@@ -589,7 +693,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 8: PROFIT SHARING -->
+            <!-- SLIDE 11: PROFIT SHARING -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 6: Profit Sharing & IP</h2>
@@ -617,7 +721,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 9: OFFICE SPACE -->
+            <!-- SLIDE 12: OFFICE SPACE -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 7: Office Space Provision</h2>
@@ -641,7 +745,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 10: EXPANSION PLANS -->
+            <!-- SLIDE 13: EXPANSION PLANS -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 8: Future Expansion</h2>
@@ -672,7 +776,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 11: BINDING EFFECT -->
+            <!-- SLIDE 14: BINDING EFFECT -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 9: Binding Effect</h2>
@@ -692,7 +796,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 12: FINANCIAL PREREQUISITE -->
+            <!-- SLIDE 15: FINANCIAL PREREQUISITE -->
             <section>
                 <div class="slide-content">
                     <h2>LOI Clause 2A: Financial Prerequisite</h2>
@@ -712,7 +816,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 13: OPERATIONAL FRAMEWORK -->
+            <!-- SLIDE 16: OPERATIONAL FRAMEWORK -->
             <section>
                 <div class="slide-content">
                     <h2>Operational Framework</h2>
@@ -748,7 +852,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 14: RISK MITIGATION -->
+            <!-- SLIDE 17: RISK MITIGATION -->
             <section>
                 <div class="slide-content">
                     <h2>Risk Mitigation Strategy</h2>
@@ -786,7 +890,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 15: IMPLEMENTATION ROADMAP -->
+            <!-- SLIDE 18: IMPLEMENTATION ROADMAP -->
             <section>
                 <div class="slide-content">
                     <h2>Implementation Roadmap</h2>
@@ -834,7 +938,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 16: FINANCIAL PROJECTIONS -->
+            <!-- SLIDE 19: FINANCIAL PROJECTIONS -->
             <section>
                 <div class="slide-content">
                     <h2>Financial Projections</h2>
@@ -868,7 +972,25 @@
                 </div>
             </section>
 
-            <!-- SLIDE 17: NEXT STEPS -->
+            <!-- SLIDE 20: WHY THIS IS THE RIGHT DECISION -->
+            <section>
+                <div class="slide-content">
+                    <h2>Why This is the Right Decision</h2>
+                    <div class="divider"></div>
+                    <ul>
+                        <li><strong>Capital Efficiency:</strong> Gain advanced tech and new markets without massive CAPEX</li>
+                        <li><strong>Competitive Edge:</strong> Differentiate from every other bank and fintech</li>
+                        <li><strong>Growth:</strong> Acquire a new demographic and open high-margin revenue streams</li>
+                        <li><strong>Future-Proofing:</strong> Build the digital bank of the future, today</li>
+                    </ul>
+                    <div class="strategy-note">
+                        <h4><i class="fas fa-lightbulb"></i> Strategic Insight</h4>
+                        <p>This is a strategic decision for market leadership.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: NEXT STEPS -->
             <section>
                 <div class="slide-content">
                     <h2>Next Steps & Commitment</h2>
@@ -889,7 +1011,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 18: SIGNATURES & CONTACT -->
+            <!-- SLIDE 22: SIGNATURES & CONTACT -->
             <section>
                 <div class="slide-content">
                     <h2>Signatures & Contact</h2>
@@ -915,7 +1037,7 @@
                         <h4>Project Lead Contact</h4>
                         <p><strong>Otieno Abraham</strong> | Country Representative Lead - Kenya</p>
                         <p>Email: otieno.abraham@mstrpay.com | Phone: +254 735 296 125</p>
-                        <p>Availability: 30 Minutes response time for all inquiries</p>
+                        <p>Availability: 24-48 hour response time for all inquiries</p>
                     </div>
 
                     <a href="dashboard.html" class="btn">
